@@ -15,10 +15,6 @@ use yii\helpers\ArrayHelper;
 
     <?php
     $action = Yii::$app->requestedAction->actionMethod;
-    //$model = Categories::findOne($model->id);
-    $cat_name = $model->getListWithoutSelectCat($model->id);
-//    var_dump($cat_name);
-//    die();
     ?>
 
     <?php if($action == "actionCreate"): ?>
@@ -34,14 +30,13 @@ use yii\helpers\ArrayHelper;
         ?>
     <?php elseif($action == "actionUpdate"): ?>
         <?php
-            $categories = $cat_name;
-//            $categories = Categories::find()->all();
-//            $items = ArrayHelper::map($categories, 'id', 'name');
-
+            $categories = Categories::find()->all();
+            $result = ArrayHelper::map($categories, 'id', 'name');
+            $items = ArrayHelper::remove($result, $model->id);
             $params = [
                 'prompt' => 'Выберите родительскую категорию...'
             ];
-            echo $form->field($model, 'parent_id')->dropDownList($categories, $params);
+            echo $form->field($model, 'parent_id')->dropDownList($result, $params);
         ?>
     <?php endif; ?>
 

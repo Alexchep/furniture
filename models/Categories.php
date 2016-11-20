@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use \yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 class Categories extends ActiveRecord
 {
@@ -38,15 +39,11 @@ class Categories extends ActiveRecord
 
     public function getListWithoutSelectCat($id)
     {
-        $categories = $this->find()->all();
-        $list_name = [];
-        foreach ($categories as $category) {
-            if($category->id != $id){
-                array_push($list_name, [$category->id => "$category->name"]);
-            }
-        }
+        $categories = self::find()->all();
+        $result = ArrayHelper::map($categories, 'id', 'name');
+        $items = ArrayHelper::remove($result, $id);
 
-        return $list_name;
+        return $items;
     }
 
 }
