@@ -5,7 +5,7 @@ use yii\widgets\DetailView;
 use \app\models\Categories;
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Категори', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="categories-view">
@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'name',
+            //'parent_id',
             [
                 'label' => 'Родительская категория',
                 'value' => $parent_name,

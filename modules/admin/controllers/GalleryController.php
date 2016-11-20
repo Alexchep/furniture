@@ -49,8 +49,13 @@ class GalleryController extends Controller
 
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $category_id = $model->category_id;
+        $category_name = $model->getCategoryName($category_id);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'category_name' => $category_name,
         ]);
     }
 

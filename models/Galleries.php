@@ -51,4 +51,13 @@ class Galleries extends ActiveRecord
     {
         return $this->hasOne(Categories::className(), ['id' => 'category_id']);
     }
+
+    public function getCategoryName($category_id)
+    {
+        $category = Categories::findOne($category_id);
+        $category_name = $category->name;
+
+        return $category_name;
+    }
+
 }

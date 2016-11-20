@@ -3,9 +3,10 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\i18n\Formatter;
+use app\models\Galleries;
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Galleries', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Галерея', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="galleries-view">
@@ -26,7 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'title',
             'description:ntext',
             [
@@ -36,8 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['class' => 'view-img'],
                 'captionOptions' => ['tooltip' => 'Tooltip'],
             ],
-            //'path_to_pic',
-            'category_id',
+            [
+                'label' => 'Категория',
+                'value' => $category_name,
+                'contentOptions' => ['class' => 'view-img'],
+                'captionOptions' => ['tooltip' => 'Tooltip'],
+            ],
+            //'category_id' => $category_name,
         ],
     ]) ?>
 

@@ -36,15 +36,14 @@ class Categories extends ActiveRecord
         return $this->hasMany(Galleries::className(), ['category_id' => 'id']);
     }
 
-    public function getListWithoutSelectCat($name)
+    public function getListWithoutSelectCat($id)
     {
         $categories = $this->find()->all();
         $list_name = [];
         foreach ($categories as $category) {
-            $list_name[] = $category->name;
-        }
-        while (($i = array_search($name, $list_name)) !== false) {
-            unset($list_name[$i]);
+            if($category->id != $id){
+                array_push($list_name, [$category->id => "$category->name"]);
+            }
         }
 
         return $list_name;

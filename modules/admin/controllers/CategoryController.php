@@ -86,14 +86,11 @@ class CategoryController extends Controller
         }else{
             $parent_name = 'Отсутствует';
         }
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', [
-//                'parent_name' => $parent_name,
-//                'id' => $model->id,
-//            ]]);
-            return $this->render('view', [
+            return $this->redirect(['view',
                 'parent_name' => $parent_name,
-                'model' => $model,
+                'id' => $model->id,
             ]);
         } else {
             return $this->render('update', [
@@ -105,7 +102,15 @@ class CategoryController extends Controller
 
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $categories = Categories::find()->where(['parent_id' => $id])->all();
+        if($categories){
+            foreach ($categories as $category){
+                $category->parent_id = null;
+            }
+        }
+
+        $model->delete();
 
         return $this->redirect(['index']);
     }
