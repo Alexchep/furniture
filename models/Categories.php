@@ -37,13 +37,13 @@ class Categories extends ActiveRecord
         return $this->hasMany(Galleries::className(), ['category_id' => 'id']);
     }
 
-    public function getListWithoutSelectCat($id)
-    {
-        $categories = self::find()->all();
-        $result = ArrayHelper::map($categories, 'id', 'name');
-        $items = ArrayHelper::remove($result, $id);
-
-        return $items;
-    }
+//    public function getListWithoutSelectCat($id)
+//    {
+//        $categories = self::find()->all();
+//        $items = ArrayHelper::map($categories, 'id', 'name');
+//        ArrayHelper::remove($items, $id);
+//
+//        return $items;
+//    }
 
 }

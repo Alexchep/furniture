@@ -27,11 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'name',
-            //'parent_id',
             [
                 'label' => 'Родительская категория',
                 'value' => $parent_name,
-                //'format' => 'text',
                 'contentOptions' => ['class' => 'bg-red'],
                 'captionOptions' => ['tooltip' => 'Tooltip'],
             ],

@@ -2,9 +2,6 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Galleries */
-
 $this->title = 'Update Galleries: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Galleries', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];

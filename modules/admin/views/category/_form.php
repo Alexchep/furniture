@@ -9,7 +9,9 @@ use yii\helpers\ArrayHelper;
 
 <div class="categories-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'action' => 'update',
+    ]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -31,12 +33,12 @@ use yii\helpers\ArrayHelper;
     <?php elseif($action == "actionUpdate"): ?>
         <?php
             $categories = Categories::find()->all();
-            $result = ArrayHelper::map($categories, 'id', 'name');
-            $items = ArrayHelper::remove($result, $model->id);
+            $items = ArrayHelper::map($categories, 'id', 'name');
+            ArrayHelper::remove($items, $model->id);
             $params = [
-                'prompt' => 'Выберите родительскую категорию...'
-            ];
-            echo $form->field($model, 'parent_id')->dropDownList($result, $params);
+                    'prompt' => 'Выберите родительскую категорию...'
+                ];
+            echo $form->field($model, 'parent_id')->dropDownList($items, $params);
         ?>
     <?php endif; ?>
 
