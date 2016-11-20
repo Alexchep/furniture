@@ -56,16 +56,6 @@ class GalleryController extends Controller
 
     public function actionCreate()
     {
-//        $model = new Galleries();
-//
-//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', 'id' => $model->id]);
-//        } else {
-//            return $this->render('create', [
-//                'model' => $model,
-//            ]);
-//        }
-
         $model = new Galleries();
         $image = new ImageForGallery();
         if ($model->load(Yii::$app->request->post())) {
@@ -86,7 +76,15 @@ class GalleryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $image = new ImageForGallery();
+
+        if ($model->load(Yii::$app->request->post())){
+            $image->picture = UploadedFile::getInstance($model, 'path_to_pic');
+            $image->picture->saveAs('uploads/' . $image->picture->name);
+            $model->path_to_pic = $image->picture->name;
+
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

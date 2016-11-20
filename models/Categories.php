@@ -5,28 +5,14 @@ namespace app\models;
 use Yii;
 use \yii\db\ActiveRecord;
 
-/**
- * This is the model class for table "categories".
- *
- * @property integer $id
- * @property string $name
- * @property integer $parent_id
- *
- * @property Galleries[] $galleries
- */
 class Categories extends ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
+
     public static function tableName()
     {
         return 'categories';
     }
 
-    /**
-     * @inheritdoc
-     */
     public function rules()
     {
         return [
@@ -36,9 +22,6 @@ class Categories extends ActiveRecord
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     public function attributeLabels()
     {
         return [
@@ -48,11 +31,23 @@ class Categories extends ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getGalleries()
     {
         return $this->hasMany(Galleries::className(), ['category_id' => 'id']);
     }
+
+    public function getListWithoutSelectCat($name)
+    {
+        $categories = $this->find()->all();
+        $list_name = [];
+        foreach ($categories as $category) {
+            $list_name[] = $category->name;
+        }
+        while (($i = array_search($name, $list_name)) !== false) {
+            unset($list_name[$i]);
+        }
+
+        return $list_name;
+    }
+
 }

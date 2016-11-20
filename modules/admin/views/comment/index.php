@@ -3,13 +3,12 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-$this->title = 'Comments';
+$this->title = 'Комментарии';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="comments-index">
 
     <h1>Комментарии</h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Добавить комментарий', ['create'], ['class' => 'btn btn-success']) ?>

@@ -27,9 +27,9 @@ use yii\helpers\ArrayHelper;
 
 
     <?php
-        $groups = Categories::find()->all();
+        $galleries = Categories::find()->all();
 
-        $items = ArrayHelper::map($groups, 'id', 'name');
+        $items = ArrayHelper::map($galleries, 'id', 'name');
 
         $params = [
             'prompt' => 'Выберите категорию...'

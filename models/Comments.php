@@ -12,32 +12,24 @@ use \yii\db\ActiveRecord;
  * @property string $text
  * @property string $author_name
  * @property string $date
+ * @property integer $status
  */
 class Comments extends ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
     public static function tableName()
     {
         return 'comments';
     }
 
-    /**
-     * @inheritdoc
-     */
     public function rules()
     {
         return [
-            [['text', 'author_name'], 'required'],
+            [['text', 'author_name', 'status'], 'required'],
             [['date'], 'safe'],
             [['text', 'author_name'], 'string', 'max' => 255],
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     public function attributeLabels()
     {
         return [
@@ -45,6 +37,8 @@ class Comments extends ActiveRecord
             'text' => 'Комментарий',
             'author_name' => 'Автор',
             'date' => 'Дата создания',
+            'status' => 'Статус',
         ];
     }
+
 }

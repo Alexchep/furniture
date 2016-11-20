@@ -47,7 +47,18 @@ class CategoryController extends Controller
 
     public function actionView($id)
     {
+        $category = $this->findModel($id);
+
+        if($category->parent_id !== null){
+            $parent_id = $category->parent_id;
+            $parent = $this->findModel($parent_id);
+            $parent_name = $parent->name;
+        }else{
+            $parent_name = 'Отсутствует';
+        }
+
         return $this->render('view', [
+            'parent_name' => $parent_name,
             'model' => $this->findModel($id),
         ]);
     }
@@ -68,11 +79,25 @@ class CategoryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        if($model->parent_id !== null){
+            $parent_id = $model->parent_id;
+            $parent = $this->findModel($parent_id);
+            $parent_name = $parent->name;
+        }else{
+            $parent_name = 'Отсутствует';
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+//            return $this->redirect(['view', [
+//                'parent_name' => $parent_name,
+//                'id' => $model->id,
+//            ]]);
+            return $this->render('view', [
+                'parent_name' => $parent_name,
+                'model' => $model,
+            ]);
         } else {
             return $this->render('update', [
+                'parent_name' => $parent_name,
                 'model' => $model,
             ]);
         }
