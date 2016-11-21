@@ -42,7 +42,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['class' => 'view-img'],
                 'captionOptions' => ['tooltip' => 'Tooltip'],
             ],
-            //'category_id' => $category_name,
         ],
     ]) ?>
 
