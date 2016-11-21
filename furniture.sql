@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Ноя 20 2016 г., 21:10
+-- Время создания: Ноя 21 2016 г., 17:41
 -- Версия сервера: 5.6.17
 -- Версия PHP: 5.5.12
 
@@ -86,6 +86,16 @@ CREATE TABLE `galleries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table of galleries';
 
 --
+-- Дамп данных таблицы `galleries`
+--
+
+INSERT INTO `galleries` (`id`, `title`, `description`, `path_to_pic`, `category_id`) VALUES
+(7, 'Благородный козлик', 'Бээ', 'Pcb9MFZLAJs.jpg', 13),
+(8, 'Орущий козлик', 'Ааа', 'MoXxlurLW4w.jpg', 7),
+(9, 'Обдолбанный козлик', 'Гыыыы', 'LOa_a_2YyFE.jpg', 14),
+(10, 'Голодный козлик', 'Есть пожрать че?', 'Tx3SUdo5-hs.jpg', 11);
+
+--
 -- Индексы сохранённых таблиц
 --
 
@@ -127,7 +137,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT для таблицы `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --

@@ -16,6 +16,14 @@ $this->title = 'Галерея';
             'title',
             'description:ntext',
             [
+                'attribute'=>'category_id',
+                'label'=>'Родительская категория',
+                'format'=>'text', // Возможные варианты: raw, html
+                'content'=>function($data){
+                    return $data->getCategoryName($data->category_id);
+                },
+            ],
+            [
                 'label' => 'Изображение',
                 'attribute' => 'path_to_pic',
                 'value' => function($data){
