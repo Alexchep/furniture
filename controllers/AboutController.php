@@ -6,7 +6,7 @@ use Yii;
 use yii\web\Controller;
 
 
-class SiteController extends Controller
+class AboutController extends Controller
 {
 
     public function actionIndex()

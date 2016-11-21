@@ -1,8 +1,5 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -37,9 +34,9 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'О нас', 'url' => ['/site/about']],
-            ['label' => 'Контакты', 'url' => ['/site/contact']],
-            ['label' => 'Галерея', 'url' => ['/site/gallery']],
+            ['label' => 'О нас', 'url' => ['/about/index']],
+            ['label' => 'Контакты', 'url' => ['/contact/index']],
+            ['label' => 'Галерея', 'url' => ['/gallery/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Admin', 'url' => ['/admin/default/login']]
             ) : (
