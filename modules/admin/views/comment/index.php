@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'text',
             'author_name',
             'date',
+            'status',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

@@ -2,6 +2,8 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use yii\bootstrap\Modal;
+use app\models\Comments;
 
 $this->title = 'Furniture';
 ?>
@@ -9,17 +11,25 @@ $this->title = 'Furniture';
 
     <div class="body-content">
 
-        <?php $form = ActiveForm::begin(['action' => 'sendComment']); ?>
-
-        <?= $form->field($model, 'author_name')->textInput(['maxlength' => true]) ?>
-
-        <?= $form->field($model, 'text')->textarea(['rows' => 5]) ?>
-
-        <div class="form-group">
-            <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
-        </div>
-
-        <?php ActiveForm::end(); ?>
+        <?php
+            Modal::begin([
+                'id' => 'modal-comment',
+                'header' => '<h2>Оставьте комментарий</h2>',
+                'toggleButton' => [
+                    'label' => 'Оставить комментарий',
+                    'class' => 'btn btn-info'
+                ],
+                'closeButton' => [
+                    'label' => 'Закрыть',
+                    'class' => 'btn btn-default btn-sm pull-right',
+                    'id' => 'close-modal',
+                ],
+                'size' => 'modal-sm',
+            ]);
+            $model = new Comments();
+            echo $this->render('_comment', ['model' => $model]);
+            Modal::end();
+        ?>
 
     </div>
 </div>

@@ -15,7 +15,7 @@ class Comments extends ActiveRecord
     public function rules()
     {
         return [
-            [['text', 'author_name', 'status'], 'required'],
+            [['text', 'author_name'], 'required'],
             [['date'], 'safe'],
             [['text', 'author_name'], 'string', 'max' => 255],
         ];
