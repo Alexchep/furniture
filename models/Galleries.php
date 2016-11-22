@@ -5,17 +5,6 @@ namespace app\models;
 use Yii;
 use \yii\db\ActiveRecord;
 
-/**
- * This is the model class for table "galleries".
- *
- * @property integer $id
- * @property string $title
- * @property string $description
- * @property string $path_to_pic
- * @property integer $category_id
- *
- * @property Categories $category
- */
 class Galleries extends ActiveRecord
 {
 
