@@ -1,5 +1,7 @@
+$(document).on('pjax:beforeSend', function() {
+    var name = $('#comments-author_name').val();
+    alert('Спасибо за отзыв ' + name + '!');
+});
 $(document).on('pjax:complete', function() {
-    $('#modal-comment').hide().removeClass('in');
-    $('.modal-backdrop').hide().removeClass('in');
-    alert('done');
+    $('#close-modal').trigger('click');
 });
