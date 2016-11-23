@@ -7,6 +7,7 @@ use \yii\db\ActiveRecord;
 
 class Comments extends ActiveRecord
 {
+
     public static function tableName()
     {
         return 'comments';
@@ -15,7 +16,7 @@ class Comments extends ActiveRecord
     public function rules()
     {
         return [
-            [['text', 'author_name'], 'required'],
+            [['text', 'author_name', 'status'], 'required'],
             [['date'], 'safe'],
             [['text', 'author_name'], 'string', 'max' => 255],
         ];

@@ -11,6 +11,16 @@ $this->title = 'Furniture';
 
     <div class="body-content">
 
+        <div id="alert-div" class="alert alert-success"></div>
+
+        <?php foreach ($comments as $comment): ?>
+            <div class="comment-wrap col-md-4">
+                <h3><?= $comment->author_name ?></h3>
+                <p class="comment-body"><?= $comment->text ?></p>
+                <p class="comment-date"><?= $comment->date ?></p>
+            </div>
+        <?php endforeach; ?>
+
         <?php
             Modal::begin([
                 'id' => 'modal-comment',

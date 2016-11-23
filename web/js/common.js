@@ -1,9 +1,14 @@
-//Закрытие модального окна на site/index после отправки формы
-$('body').on( 'click', '#sendComm', function(e) {
-    e.preventDefault();
+//Закрытие модального окна на site/index
+$('body').on( 'click', '#sendComm', function() {
     var name = $('#comments-author_name').val();
-    alert('Спасибо за отзыв ' + name + '!');
-    $('#close-modal').trigger('click');
+    var closeBut = $('#close-modal');
+    closeBut.trigger('click');
+    var divAlert = $('#alert-div');
+    divAlert.css({"display" : "block"}).html('Спасибо за отзыв, ' + name + '!');
+    var explode = function () {
+        divAlert.css({"display" : "none"});
+    };
+    setTimeout(explode, 3000);
 });
 
 

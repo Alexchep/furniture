@@ -118,3 +118,24 @@ a.desc:after {
     width: 150px !important;
     height: 150px !important;
 }
+
+#alert-div{
+    display: none;
+}
+
+.comment-wrap{
+    height: 150px;
+    border: 1px solid #1f4;
+}
+
+.comment-wrap h3{
+    text-align: center;
+}
+
+.comment-date{
+
+}
+
+.comment-body{
+
+}
