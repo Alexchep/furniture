@@ -28,12 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'text',
             'author_name',
             'date',
-            [                                                  // name свойство зависимой модели owner
+            [
+                'attribute' => 'status',
                 'label' => 'Статус',
                 'value' => $model->status,
                 'format' => 'text',
-                'contentOptions' => ['class' => 'bg-red'],     // настройка HTML атрибутов для тега, соответсвующего value
-                'captionOptions' => ['tooltip' => 'Tooltip'],  // настройка HTML атрибутов для тега, соответсвующего label
+                'contentOptions' => ['class' => 'bg-red'],
+                'captionOptions' => ['tooltip' => 'Tooltip'],
             ],
         ],
     ]) ?>

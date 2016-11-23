@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
+use yii\widgets\Pjax;
+use yii\bootstrap\Modal;
 
 $this->title = 'Галерея';
 $this->params['breadcrumbs'][] = $this->title;
@@ -12,8 +14,26 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1>Галерея</h1>
 
     <p>
-        <?= Html::a('Добавить в галерею', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Добавить в галерею', ['value' => Url::to('create'), 'class' => 'btn btn-success', 'id' => 'gallery-button']) ?>
     </p>
+
+    <?php
+        Modal::begin([
+            'id' => 'modal-gallery-admin',
+            'header' => '<h2>Добавить в галерею</h2>',
+            'closeButton' => [
+                'label' => 'Закрыть',
+                'class' => 'btn btn-default btn-sm pull-right',
+                'id' => 'close-modal-gallery',
+            ],
+            'size' => 'modal-md',
+        ]);
+        echo "<div id='adminGallery'></div>";
+        Modal::end();
+    ?>
+
+    <?php Pjax::begin(['enablePushState' => false]) ?>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
@@ -42,4 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
+    <?php Pjax::end() ?>
+
 </div>

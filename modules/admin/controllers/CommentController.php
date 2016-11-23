@@ -38,6 +38,9 @@ class CommentController extends Controller
         $query = Comments::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
         ]);
 
         return $this->render('index', [

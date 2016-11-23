@@ -40,6 +40,9 @@ class GalleryController extends Controller
         $query = Galleries::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
         ]);
 
         return $this->render('index', [
@@ -72,7 +75,7 @@ class GalleryController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }

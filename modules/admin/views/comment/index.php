@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\bootstrap\Modal;
 use \yii\helpers\Url;
+use \yii\widgets\Pjax;
 
 $this->title = 'Комментарии';
 $this->params['breadcrumbs'][] = $this->title;
@@ -32,6 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
         Modal::end();
     ?>
 
+    <?php Pjax::begin(['enablePushState' => false]) ?>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
@@ -43,4 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
+    <?php Pjax::end() ?>
+
 </div>

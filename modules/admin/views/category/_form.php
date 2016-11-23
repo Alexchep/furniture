@@ -9,9 +9,7 @@ use yii\helpers\ArrayHelper;
 
 <div class="categories-form">
 
-    <?php $form = ActiveForm::begin([
-        'action' => 'update',
-    ]); ?>
+    <?php $form = ActiveForm::begin() ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
