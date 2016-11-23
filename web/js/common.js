@@ -1,12 +1,8 @@
-//Закрытие модального окна на site/index
-
-//Отправка алерта до отправки формы
-$(document).on('pjax:beforeSend', "#w1", function() {
+//Закрытие модального окна на site/index после отправки формы
+$('body').on( 'click', '#sendComm', function(e) {
+    e.preventDefault();
     var name = $('#comments-author_name').val();
     alert('Спасибо за отзыв ' + name + '!');
-});
-//Иммитация нажатияна кнопку "Закрыть" в попапе
-$(document).on('pjax:complete', "#w1", function() {
     $('#close-modal').trigger('click');
 });
 

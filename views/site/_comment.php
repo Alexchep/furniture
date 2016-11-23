@@ -18,7 +18,10 @@ $this->title = 'Furniture';
     <?= $form->field($model, 'text')->textarea(['rows' => 5]) ?>
 
         <div class="form-group">
-            <?= Html::submitButton('Отправить', ['id' => 'sendComm', 'class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('Отправить', [
+                'id' => 'sendComm',
+                'class' => 'btn btn-primary',
+            ]) ?>
         </div>
 
     <?php ActiveForm::end(); ?>
