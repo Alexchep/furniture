@@ -14,7 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1>Комментарии</h1>
 
     <p>
-
         <?= Html::button('Добавить комментарий', ['value' => Url::to('create'), 'class' => 'btn btn-success', 'id' => 'comment-button']) ?>
     </p>
 

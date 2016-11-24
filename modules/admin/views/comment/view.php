@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Комментарии', 'url' => ['index']];
