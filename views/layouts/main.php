@@ -5,6 +5,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -21,52 +22,56 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'Furniture',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'О нас', 'url' => ['/about/index']],
-            ['label' => 'Контакты', 'url' => ['/contact/index']],
-            ['label' => 'Галерея', 'url' => ['/gallery/index']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Admin', 'url' => ['/admin/default/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/admin/default/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
+<div class="container-fluid" id="main-wrap">
+    <div class="row-fluid second-wrap">
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+        <div class="col-md-3 left-panel">
+            <!--Sidebar content-->
+            <div class="logo">
+                <?php echo Html::img('@web/web/logo.png', ['id' => 'logo']) ?>
+            </div>
+            <div class="nav-bar">
+                <ul class="bmenu">
+                    <li class="active"><?php echo Html::a('Главная', ['/site/index']) ?></li>
+                    <li class="active"><?php echo Html::a('О нас', ['/about/index']) ?></li>
+                    <li class="active"><?php echo Html::a('Контакты', ['/contact/index']) ?></li>
+                    <li class="active"><?php echo Html::a('Галерея', ['/gallery/index']) ?></li>
+                    <li class="active"><?php echo Html::a('Admin', ['/admin/default/login']) ?></li>
+                </ul>
+            </div>
+            <div class="social row-fluid">
+                <div class="col-md-12 social-icons">
+                    <?php $vk = Html::img('@web/web/uploads/vk.png'); ?>
+                    <?php echo Html::a($vk, 'http://vk.com', [
+                        'target' => '_blank'
+                    ]) ?>
+                    <?php $fb = Html::img('@web/web/uploads/facebook.png'); ?>
+                    <?php echo Html::a($fb, 'http://facebook.com', [
+                        'target' => '_blank'
+                    ]) ?>
+                    <?php $inst = Html::img('@web/web/uploads/instagram.png'); ?>
+                    <?php echo Html::a($inst, 'http://instagram.com', [
+                        'target' => '_blank'
+                    ]) ?>
+                </div>
+            </div>
+            <div class="menu-footer">
+                <div class="row-fluid">
+                    <p>&copy; ЧП Кравец <?php echo date('Y') ?></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 main-container">
+            <!--Body content-->
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= $content ?>
+        </div>
     </div>
+
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; Furniture <?= date('Y') ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>
