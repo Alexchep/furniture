@@ -176,7 +176,7 @@ a.desc:after {
     left: 30%;
     top: 17%;
     width: 35%;
-    height: 65%;
+    height: 60%;
 }
 
 .nav-bar{
@@ -277,3 +277,23 @@ a.desc:after {
     /*background-image: url("../web/main-bg.jpg");*/
     /*background-size: 100% 100%;*/
 }
+
+#modal-comment .modal-content{
+    background-color: #266;
+}
+
+#modal-comment h2, #modal-comment label{
+    color: #fff;
+}
+
+#sendComm{
+    background-color: #D58500;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 12pt;
+}
+
+#close-modal{
+    background-color: #5e5e5e;
+    color: #fff;
+    font-size: 11pt;
