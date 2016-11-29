@@ -11,35 +11,13 @@ $this->title = 'Furniture';
 
     <div class="body-content">
 
-        <div id="alert-div" class="alert alert-success"></div>
+        <div class="col-md-12 main-page">
 
-        <?php foreach ($comments as $comment): ?>
-            <div class="comment-wrap col-md-4">
-                <h3><?= $comment->author_name ?></h3>
-                <p class="comment-body"><?= $comment->text ?></p>
-                <p class="comment-date"><?= $comment->date ?></p>
-            </div>
-        <?php endforeach; ?>
+            <h1>Hello!</h1>
+            <h2>It's me!</h2>
+            <p>fierunf9upaerrevnoCMU9FE4WNHF   URW4HCR84ORERFRECGRGREGHETHHTRHRTHTHRTHTEHETHETHETHG</p>
 
-        <?php
-            Modal::begin([
-                'id' => 'modal-comment',
-                'header' => '<h2>Оставьте комментарий</h2>',
-                'toggleButton' => [
-                    'label' => 'Оставить комментарий',
-                    'class' => 'btn btn-info'
-                ],
-                'closeButton' => [
-                    'label' => 'Закрыть',
-                    'class' => 'btn btn-default btn-sm pull-right',
-                    'id' => 'close-modal',
-                ],
-                'size' => 'modal-sm',
-            ]);
-            $model = new Comments();
-            echo $this->render('_comment', ['model' => $model]);
-            Modal::end();
-        ?>
+        </div
 
     </div>
 </div>
