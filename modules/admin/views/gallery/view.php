@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             [
                 'label' => 'Изображение',
-                'value' => '@web/web/uploads/'. $model->path_to_pic,
+                'value' => '@web/uploads/'. $model->path_to_pic,
                 'format' => 'image',
                 'contentOptions' => ['class' => 'view-img'],
                 'captionOptions' => ['tooltip' => 'Tooltip'],

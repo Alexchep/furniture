@@ -25,7 +25,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'Панель администратора',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => '/admin/default/index',
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],

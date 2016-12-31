@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Изображение',
                 'attribute' => 'path_to_pic',
                 'value' => function($data){
-                    return Html::img(Url::toRoute('@web/web/uploads/'. $data->path_to_pic),[
+                    return Html::img(Url::toRoute('@web/uploads/'. $data->path_to_pic),[
                         'alt' => $data->title,
                         'style' => 'width: 50px; height: 50px'
                     ]);

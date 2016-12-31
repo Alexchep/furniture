@@ -28,7 +28,7 @@ AppAsset::register($this);
         <div class="col-md-3 left-panel">
             <!--Sidebar content-->
             <div class="logo">
-                <?php echo Html::img('@web/web/logo.png', ['id' => 'logo']) ?>
+                <?php echo Html::img('@web/logo.png', ['id' => 'logo']) ?>
             </div>
             <div class="nav-bar">
                 <ul class="bmenu">
@@ -41,15 +41,15 @@ AppAsset::register($this);
             </div>
             <div class="social row-fluid">
                 <div class="col-md-12 social-icons">
-                    <?php $vk = Html::img('@web/web/uploads/vk.png'); ?>
+                    <?php $vk = Html::img('@web/uploads/vk.png'); ?>
                     <?php echo Html::a($vk, 'http://vk.com', [
                         'target' => '_blank'
                     ]) ?>
-                    <?php $fb = Html::img('@web/web/uploads/facebook.png'); ?>
+                    <?php $fb = Html::img('@web/uploads/facebook.png'); ?>
                     <?php echo Html::a($fb, 'http://facebook.com', [
                         'target' => '_blank'
                     ]) ?>
-                    <?php $inst = Html::img('@web/web/uploads/instagram.png'); ?>
+                    <?php $inst = Html::img('@web/uploads/instagram.png'); ?>
                     <?php echo Html::a($inst, 'http://instagram.com', [
                         'target' => '_blank'
                     ]) ?>

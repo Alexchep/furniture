@@ -161,7 +161,7 @@ a.desc:after {
     height: 100%;
     padding-left: 0;
     padding-right: 0;
-    background-image: url("../web/main-bg.jpg");
+    background-image: url("../main-bg.jpg");
     background-size: 100% 100%;
 }
 

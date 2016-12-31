@@ -18,7 +18,7 @@ use yii\helpers\ArrayHelper;
 
     <?php if(isset($model->path_to_pic)): ?>
         <div class="edit-img">
-            <?php echo Html::img('@web/web/uploads/'. $model->path_to_pic) ?>
+            <?php echo Html::img('@web/uploads/'. $model->path_to_pic) ?>
         </div>
         <?php echo $form->field($model, 'path_to_pic')->fileInput() ?>
     <?php else: ?>
