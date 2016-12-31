@@ -36,7 +36,7 @@ AppAsset::register($this);
                     <li class="active"><?php echo Html::a('О нас', ['/about/index']) ?></li>
                     <li class="active"><?php echo Html::a('Контакты', ['/contact/index']) ?></li>
                     <li class="active"><?php echo Html::a('Галерея', ['/gallery/index']) ?></li>
-                    <li class="active"><?php echo Html::a('Admin', ['/admin/default/login']) ?></li>
+                    <li class="active"><?php echo Html::a('Admin', ['/admin/default/index']) ?></li>
                 </ul>
             </div>
             <div class="social row-fluid">
